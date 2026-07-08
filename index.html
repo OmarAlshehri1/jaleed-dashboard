@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,13 +9,19 @@
 </head>
 <body>
 
+    <!-- زر تبديل اللغة أعلى الشاشة -->
+    <div class="lang-container">
+        <button id="lang-btn" class="lang-btn">English</button>
+    </div>
+
     <div class="dashboard-container">
-        <h1 class="main-title">LIVE REVIEWS</h1>
+        <h1 class="main-title" id="main-title">التقييم المباشر للجمهور</h1>
         
         <div class="flavors-row">
+            <!-- النكهة الأولى -->
             <div class="flavor-card" id="raspberry">
                 <div class="header-zone">
-                    <h2>RASPBERRY & APPLE</h2>
+                    <h2 class="flavor-title" data-ar="التوت العليق والتفاح" data-en="RASPBERRY & APPLE">التوت العليق والتفاح</h2>
                 </div>
                 <div class="can-stage">
                     <img src="https://res.cloudinary.com/dfoch6txc/image/upload/v1783332212/APPLE-BERRY-CAN_ly0oev.png" alt="Raspberry & Apple" class="can-img">
@@ -26,13 +32,14 @@
                         <div class="stars-inactive">★★★★★</div>
                         <div class="stars-active" id="stars-active-raspberry">★★★★★</div>
                     </div>
-                    <div class="total-votes">0 votes</div>
+                    <div class="total-votes">0 <span class="vote-word">تصويت</span></div>
                 </div>
             </div>
 
+            <!-- النكهة الثانية -->
             <div class="flavor-card" id="blackberry">
                 <div class="header-zone">
-                    <h2>BLACKBERRY & GRAPE</h2>
+                    <h2 class="flavor-title" data-ar="التوت الأسود والعنب" data-en="BLACKBERRY & GRAPE">التوت الأسود والعنب</h2>
                 </div>
                 <div class="can-stage">
                     <img src="https://res.cloudinary.com/dfoch6txc/image/upload/v1783332212/BLACKBERRY-_-GRAPE-CAN_npyf0h.png" alt="Blackberry & Grape" class="can-img">
@@ -43,13 +50,14 @@
                         <div class="stars-inactive">★★★★★</div>
                         <div class="stars-active" id="stars-active-blackberry">★★★★★</div>
                     </div>
-                    <div class="total-votes">0 votes</div>
+                    <div class="total-votes">0 <span class="vote-word">تصويت</span></div>
                 </div>
             </div>
 
+            <!-- النكهة الثالثة -->
             <div class="flavor-card" id="elderflower">
                 <div class="header-zone">
-                    <h2>ELDERFLOWER & APPLE</h2>
+                    <h2 class="flavor-title" data-ar="زهرة البيلسان والتفاح" data-en="ELDERFLOWER & APPLE">زهرة البيلسان والتفاح</h2>
                 </div>
                 <div class="can-stage">
                     <img src="https://res.cloudinary.com/dfoch6txc/image/upload/v1783332212/ELDERFLOWER-_-APPLE-CAN_afk3hf.png" alt="Elderflower & Apple" class="can-img">
@@ -60,8 +68,21 @@
                         <div class="stars-inactive">★★★★★</div>
                         <div class="stars-active" id="stars-active-elderflower">★★★★★</div>
                     </div>
-                    <div class="total-votes">0 votes</div>
+                    <div class="total-votes">0 <span class="vote-word">تصويت</span></div>
                 </div>
+            </div>
+        </div>
+
+        <!-- قسم الإحصائيات الإجمالية بالأسفل -->
+        <div class="global-stats-footer">
+            <div class="stat-box">
+                <div class="stat-label" id="lbl-total-participants">إجمالي المشاركين</div>
+                <div class="stat-value" id="global-count">0</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-box">
+                <div class="stat-label" id="lbl-global-rating">متوسط التقييم العام</div>
+                <div class="stat-value" id="global-average">0.0 <span class="small-five">/5</span></div>
             </div>
         </div>
     </div>

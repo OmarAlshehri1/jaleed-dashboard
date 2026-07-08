@@ -3,7 +3,37 @@ body {
     padding: 0;
     background-color: #f6f7f9;
     font-family: 'Tajawal', sans-serif;
-    overflow: hidden; /* يمنع السكرول عشان تطلع متناسقة على الشاشة الكبيرة */
+    overflow: hidden; /* يمنع ظهور أشرطة التمرير ليبقى العرض ممتازاً على الشاشات الكبيرة */
+    min-height: 100vh;
+}
+
+.lang-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 40px 0 40px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    z-index: 10;
+}
+
+.lang-btn {
+    background: #fff;
+    border: 2px solid #e2e8f0;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Tajawal', sans-serif;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+}
+
+.lang-btn:hover {
+    border-color: #0084ff;
+    color: #0084ff;
 }
 
 .dashboard-container {
@@ -11,28 +41,28 @@ body {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between; /* يوزع العنوان والمنتصف والإحصائيات بانتظام */
     align-items: center;
-    padding: 40px;
+    padding: 60px 40px 40px 40px;
     box-sizing: border-box;
 }
 
 .main-title {
-    font-size: 3.8rem;
+    font-size: 3.5rem;
     font-weight: 900;
-    margin-bottom: 60px;
+    margin: 0 0 20px 0;
     color: #111;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
 }
 
 .flavors-row {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 100px; /* مسافة ممتازة تفصل العلب عن بعضها */
+    gap: 120px; /* مسافة مريحة تفصل العلب */
     width: 100%;
-    max-width: 1400px;
+    max-width: 1500px;
 }
 
 .flavor-card {
@@ -44,19 +74,21 @@ body {
 }
 
 .header-zone h2 {
-    font-size: 1.8rem;
+    font-size: 2rem;
     font-weight: 900;
     color: #111;
-    margin: 0 0 20px 0;
+    margin: 0 0 25px 0;
     white-space: nowrap;
 }
 
+/* تكبير وتوسيع مسرح العلبة */
 .can-stage {
     width: 100%;
-    max-width: 250px;
+    max-width: 320px; /* 👈 تم التكبير لبروز أكبر على الشاشات العريضة */
     display: flex;
     justify-content: center;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.08)); /* ظل خفيف يعطي بعداً جمالياً للعلب */
 }
 
 .can-img {
@@ -72,42 +104,87 @@ body {
 }
 
 .rating-number {
-    font-size: 3rem;
+    font-size: 3.5rem;
     font-weight: 900;
-    color: #333;
+    color: #222;
     margin-bottom: 5px;
 }
 
 .rating-number .score {
-    color: #0084ff; /* تمييز الرقم بلون أزرق جليدي رائع */
+    color: #0084ff;
 }
 
-/* نظام تعبئة النجوم بدقة بناءً على النسبة الدقيقة (مثل 4.3) */
 .stars-display {
     position: relative;
-    font-size: 2.5rem;
+    font-size: 3rem;
     letter-spacing: 2px;
     line-height: 1;
     display: inline-block;
 }
 
 .stars-inactive {
-    color: #cbd5e1; /* النجوم الرمادية الخلفية */
+    color: #cbd5e1;
 }
 
 .stars-active {
-    color: #ffb800; /* النجوم الصفراء الملونة */
+    color: #ffb800;
     position: absolute;
     top: 0;
-    left: 0;
-    overflow: hidden;
-    width: 0%; /* سيتم التحكم بالنسبة هنا عبر الـ JS تلقائياً */
     white-space: nowrap;
+    overflow: hidden;
+    width: 0%;
+    transition: width 0.5s ease-out; /* حركة ناعمة عند تحديث النجوم */
 }
 
+/* دعم اتجاه النجوم للغات */
+body[dir="rtl"] .stars-active { right: 0; left: auto; }
+body[dir="ltr"] .stars-active { left: 0; right: auto; }
+
 .total-votes {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     color: #718096;
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: 12px;
+}
+
+/* تنسيق قسم الإحصائيات الإجمالية بالأسفل */
+.global-stats-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    padding: 20px 60px;
+    border-radius: 24px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+    gap: 50px;
+    margin-top: 30px;
+    border: 1px solid #edf2f7;
+}
+
+.stat-box {
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    color: #718096;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #111;
+}
+
+.stat-value .small-five {
+    font-size: 1.3rem;
+    color: #a0aec0;
+}
+
+.stat-divider {
+    width: 2px;
+    height: 50px;
+    background-color: #e2e8f0;
 }
