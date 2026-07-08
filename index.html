@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,19 +9,19 @@
 </head>
 <body>
 
-    <!-- زر تبديل اللغة أعلى الشاشة -->
-    <div class="lang-container">
-        <button id="lang-btn" class="lang-btn">English</button>
-    </div>
-
     <div class="dashboard-container">
-        <h1 class="main-title" id="main-title">التقييم المباشر للجمهور</h1>
+        <!-- قسم اللوقو والعناوين المدمجة -->
+        <header class="dashboard-header">
+            <img src="https://res.cloudinary.com/dfoch6txc/image/upload/v1783517527/fdb53378-f67d-47f4-b571-16353e5384a5_gooyte.webp" alt="Live Reviews" class="logo-img">
+            <h1 class="title-ar">تقييم نكهات جليد</h1>
+            <h2 class="title-en">JALEED FLAVORS RATING</h2>
+        </header>
         
         <div class="flavors-row">
-            <!-- النكهة الأولى -->
-            <div class="flavor-card" id="raspberry">
+            <!-- النكهة الأولى (التوت العليق والتفاح - أحمر) -->
+            <div class="flavor-card color-raspberry" id="raspberry">
                 <div class="header-zone">
-                    <h2 class="flavor-title" data-ar="التوت العليق والتفاح" data-en="RASPBERRY & APPLE">التوت العليق والتفاح</h2>
+                    <h2>RASPBERRY & APPLE</h2>
                 </div>
                 <div class="can-stage">
                     <img src="https://res.cloudinary.com/dfoch6txc/image/upload/v1783332212/APPLE-BERRY-CAN_ly0oev.png" alt="Raspberry & Apple" class="can-img">
@@ -32,14 +32,14 @@
                         <div class="stars-inactive">★★★★★</div>
                         <div class="stars-active" id="stars-active-raspberry">★★★★★</div>
                     </div>
-                    <div class="total-votes">0 <span class="vote-word">تصويت</span></div>
+                    <div class="total-votes">0 votes</div>
                 </div>
             </div>
 
-            <!-- النكهة الثانية -->
-            <div class="flavor-card" id="blackberry">
+            <!-- النكهة الثانية (التوت الأسود والعنب - بنفسجي) -->
+            <div class="flavor-card color-blackberry" id="blackberry">
                 <div class="header-zone">
-                    <h2 class="flavor-title" data-ar="التوت الأسود والعنب" data-en="BLACKBERRY & GRAPE">التوت الأسود والعنب</h2>
+                    <h2>BLACKBERRY & GRAPE</h2>
                 </div>
                 <div class="can-stage">
                     <img src="https://res.cloudinary.com/dfoch6txc/image/upload/v1783332212/BLACKBERRY-_-GRAPE-CAN_npyf0h.png" alt="Blackberry & Grape" class="can-img">
@@ -50,14 +50,14 @@
                         <div class="stars-inactive">★★★★★</div>
                         <div class="stars-active" id="stars-active-blackberry">★★★★★</div>
                     </div>
-                    <div class="total-votes">0 <span class="vote-word">تصويت</span></div>
+                    <div class="total-votes">0 votes</div>
                 </div>
             </div>
 
-            <!-- النكهة الثالثة -->
-            <div class="flavor-card" id="elderflower">
+            <!-- النكهة الثالثة (زهرة البيلسان والتفاح - أخضر فاتح) -->
+            <div class="flavor-card color-elderflower" id="elderflower">
                 <div class="header-zone">
-                    <h2 class="flavor-title" data-ar="زهرة البيلسان والتفاح" data-en="ELDERFLOWER & APPLE">زهرة البيلسان والتفاح</h2>
+                    <h2>ELDERFLOWER & APPLE</h2>
                 </div>
                 <div class="can-stage">
                     <img src="https://res.cloudinary.com/dfoch6txc/image/upload/v1783332212/ELDERFLOWER-_-APPLE-CAN_afk3hf.png" alt="Elderflower & Apple" class="can-img">
@@ -68,23 +68,33 @@
                         <div class="stars-inactive">★★★★★</div>
                         <div class="stars-active" id="stars-active-elderflower">★★★★★</div>
                     </div>
-                    <div class="total-votes">0 <span class="vote-word">تصويت</span></div>
+                    <div class="total-votes">0 votes</div>
                 </div>
             </div>
         </div>
 
-        <!-- قسم الإحصائيات الإجمالية بالأسفل -->
-        <div class="global-stats-footer">
+        <!-- قسم الإحصائيات السفلي الجديد بالأيقونات -->
+        <footer class="global-stats-footer">
+            <!-- يمين: إجمالي التقييمات (لوقو نجمة والعدد) -->
             <div class="stat-box">
-                <div class="stat-label" id="lbl-total-participants">إجمالي المشاركين</div>
-                <div class="stat-value" id="global-count">0</div>
+                <div class="stat-icon-wrapper rating-star-icon">★</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="global-rating-count">0</div>
+                    <div class="stat-label">إجمالي التقييمات / Total Ratings</div>
+                </div>
             </div>
+            
             <div class="stat-divider"></div>
+            
+            <!-- يسار: إجمالي المشاركين (لوقو شخص/مجموعة والعدد) -->
             <div class="stat-box">
-                <div class="stat-label" id="lbl-global-rating">متوسط التقييم العام</div>
-                <div class="stat-value" id="global-average">0.0 <span class="small-five">/5</span></div>
+                <div class="stat-icon-wrapper participant-user-icon">👥</div>
+                <div class="stat-info">
+                    <div class="stat-value" id="global-participants-count">0</div>
+                    <div class="stat-label">إجمالي المشاركين / Total Participants</div>
+                </div>
             </div>
-        </div>
+        </footer>
     </div>
 
     <script type="module" src="app.js"></script>
