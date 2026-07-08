@@ -3,18 +3,17 @@ body {
     padding: 0;
     background-color: #f6f7f9;
     font-family: 'Tajawal', sans-serif;
-    overflow: hidden;
+    /* تم السماح بالتمرير والنزول في الصفحة لراحتك الكاملة */
+    overflow-y: auto; 
     min-height: 100vh;
 }
 
 .dashboard-container {
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
-    padding: 30px 40px 30px 40px;
+    padding: 40px 20px;
     box-sizing: border-box;
 }
 
@@ -24,27 +23,27 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
 }
 
 .logo-img {
-    height: 90px; /* حجم اللوقو ممتاز ومتناسق */
+    height: 120px; /* تكبير لوقو جليد ليعطي هيبة للمكان */
     object-fit: contain;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .title-ar {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     font-weight: 900;
     color: #111;
     margin: 0;
 }
 
 .title-en {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     font-weight: 700;
     color: #718096;
-    margin: 4px 0 0 0;
+    margin: 6px 0 0 0;
     letter-spacing: 2px;
 }
 
@@ -52,10 +51,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    gap: 120px;
+    gap: 80px;
     width: 100%;
-    max-width: 1500px;
-    margin: 20px 0;
+    max-width: 1400px;
+    margin-bottom: 60px;
 }
 
 .flavor-card {
@@ -64,19 +63,22 @@ body {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    background: #ffffff;
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.02);
 }
 
 .header-zone h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     font-weight: 900;
     color: #111;
-    margin: 0 0 20px 0;
-    white-space: nowrap;
+    margin: 0 0 25px 0;
 }
 
 .can-stage {
     width: 100%;
-    max-width: 290px;
+    max-width: 250px;
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
@@ -99,20 +101,21 @@ body {
     font-size: 3.5rem;
     font-weight: 900;
     color: #222;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
-/* ضبط نظام النجوم بدقة متناهية (لتغطية النجمة بالكامل بدون هوامش رمادية مكشوفة) */
+/* 🎯 ضبط دقة التلوين للنجوم لمنع بقاء أطراف رمادية مشوهة */
 .stars-display {
     position: relative;
-    font-size: 3.2rem;
+    font-size: 3rem;
     line-height: 1;
     display: inline-block;
-    font-family: Arial, sans-serif; /* يضمن تطابق أبعاد النجوم في الخلفية والأمامية */
+    /* إجبار المتصفح على استخدام خط متناسق المساحات لتطابق النجوم فوق بعضها بنسبة 100% */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
 .stars-inactive {
-    color: #cbd5e1; /* لون النجوم الرمادية بالخلفية */
+    color: #cbd5e1;
 }
 
 .stars-active {
@@ -122,48 +125,49 @@ body {
     white-space: nowrap;
     overflow: hidden;
     width: 0%;
-    transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: width 0.6s ease-out;
 }
 
 .total-votes {
     font-size: 1.3rem;
     color: #718096;
     font-weight: 700;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
-/* 🎨 تطبيق الألوان المخصصة لكل منتج بدقة بناءً على طلبك */
+/* 🎨 تلوين كل منتج باللون الخاص به (التقييم الرقمي + النجوم الفعالة) */
 
-/* 1. التوت العليق والتفاح -> أحمر */
+/* 1. التوت العليق والتفاح -> أحمر دافئ */
 .color-raspberry .rating-number .score,
 .color-raspberry .stars-active {
-    color: #e53e3e;
+    color: #e53e3e; 
 }
 
-/* 2. التوت الأسود والعنب -> بنفسجي */
+/* 2. التوت الأسود والعنب -> بنفسجي فخم */
 .color-blackberry .rating-number .score,
 .color-blackberry .stars-active {
-    color: #805ad5;
+    color: #805ad5; 
 }
 
-/* 3. زهرة البيلسان والتفاح -> أخضر فاتح */
+/* 3. زهرة البيلسان والتفاح -> أخضر فاتح منعش */
 .color-elderflower .rating-number .score,
 .color-elderflower .stars-active {
-    color: #48bb78;
+    color: #48bb78; 
 }
 
 
-/* 👥 🌟 تنسيق الفوتر الجديد بالأيقونات */
+/* 📊 تنسيق حاوية الفوتر السفلي للأرقام الإجمالية */
 .global-stats-footer {
     display: flex;
     justify-content: center;
     align-items: center;
     background: #ffffff;
-    padding: 18px 50px;
+    padding: 20px 60px;
     border-radius: 24px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     gap: 60px;
     border: 1px solid #edf2f7;
+    margin-top: 20px;
 }
 
 .stat-box {
@@ -173,18 +177,12 @@ body {
 }
 
 .stat-icon-wrapper {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     line-height: 1;
 }
 
-/* ألوان جليلة مميزة للأيقونات السفلية */
-.rating-star-icon {
-    color: #ffb800; /* نجمة ذهبية دافئة */
-}
-
-.participant-user-icon {
-    color: #0084ff; /* رمز مشاركة أزرق جليدي */
-}
+.rating-star-icon { color: #ffb800; }
+.participant-user-icon { color: #0084ff; }
 
 .stat-info {
     display: flex;
@@ -193,17 +191,17 @@ body {
 }
 
 .stat-value {
-    font-size: 2.3rem;
+    font-size: 2.5rem;
     font-weight: 900;
     color: #111;
-    line-height: 1.1;
+    line-height: 1;
 }
 
 .stat-label {
-    font-size: 0.95rem;
+    font-size: 1rem;
     color: #718096;
     font-weight: 700;
-    margin-top: 2px;
+    margin-top: 5px;
 }
 
 .stat-divider {

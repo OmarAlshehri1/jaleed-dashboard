@@ -39,13 +39,12 @@ function listenToVotes() {
             });
         }
 
-        // تحديث المظهر الفردي لكل نكهة مع النجوم الملونة الخاصة بها
+        // تحديث كل منتج باللون والنسبة والنجوم الخاصة به
         updateCardUI('raspberry', Summary.raspberry);
         updateCardUI('blackberry', Summary.blackberry);
         updateCardUI('elderflower', Summary.elderflower);
 
-        // تحديث الإحصائيات بالأيقونات في الأسفل بدقة
-        // إجمالي التقييمات يمثل مجموع الأصوات، وإجمالي المشاركين كذلك يمثل عدد التقييمات الفريدة الداخلة
+        // تحديث الأعداد الإجمالية بالفوتر السفلي بشكل فوري
         document.getElementById('global-rating-count').innerText = totalGlobalCount;
         document.getElementById('global-participants-count').innerText = totalGlobalCount;
     });
@@ -62,7 +61,7 @@ function updateCardUI(flavorId, stats) {
     scoreElement.innerText = average;
     votesElement.innerText = `${stats.count} votes`;
 
-    // حساب التعبئة المئوية الدقيقة لتغطية النجوم بشكل مثالي بدون أخطاء تداخل
+    // حساب نسبة الامتلاء الدقيقة لتغطية النجوم بشكل كامل ومنع الحواف الرمادية
     const percentage = (parseFloat(average) / 5) * 100;
     activeStarsElement.style.width = `${percentage}%`;
 }
