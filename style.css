@@ -1,0 +1,113 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f6f7f9;
+    font-family: 'Tajawal', sans-serif;
+    overflow: hidden; /* يمنع السكرول عشان تطلع متناسقة على الشاشة الكبيرة */
+}
+
+.dashboard-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.main-title {
+    font-size: 3.8rem;
+    font-weight: 900;
+    margin-bottom: 60px;
+    color: #111;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.flavors-row {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 100px; /* مسافة ممتازة تفصل العلب عن بعضها */
+    width: 100%;
+    max-width: 1400px;
+}
+
+.flavor-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.header-zone h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #111;
+    margin: 0 0 20px 0;
+    white-space: nowrap;
+}
+
+.can-stage {
+    width: 100%;
+    max-width: 250px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.can-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+.rating-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rating-number {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.rating-number .score {
+    color: #0084ff; /* تمييز الرقم بلون أزرق جليدي رائع */
+}
+
+/* نظام تعبئة النجوم بدقة بناءً على النسبة الدقيقة (مثل 4.3) */
+.stars-display {
+    position: relative;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    line-height: 1;
+    display: inline-block;
+}
+
+.stars-inactive {
+    color: #cbd5e1; /* النجوم الرمادية الخلفية */
+}
+
+.stars-active {
+    color: #ffb800; /* النجوم الصفراء الملونة */
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    width: 0%; /* سيتم التحكم بالنسبة هنا عبر الـ JS تلقائياً */
+    white-space: nowrap;
+}
+
+.total-votes {
+    font-size: 1.2rem;
+    color: #718096;
+    font-weight: 700;
+    margin-top: 10px;
+}
