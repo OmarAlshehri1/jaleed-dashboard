@@ -46,6 +46,7 @@ body {
     letter-spacing: 2px;
 }
 
+/* صف النكهات الافتراضي (للشاشات الكبيرة واللابتوب) */
 .flavors-row {
     display: flex;
     justify-content: center;
@@ -149,10 +150,10 @@ body {
 }
 
 
-/* 📊 👥 📱 تنسيق منطقة الفوتر المشتركة الجديدة */
+/* 📊 👥 📱 تنسيق منطقة الفوتر المشتركة الافتراضية للابتوب */
 .combined-footer {
     display: flex;
-    justify-content: space-between; /* يضع الأرقام على طرف والسوشيال ميديا على الطرف الآخر */
+    justify-content: space-between; 
     align-items: center;
     background: #ffffff;
     padding: 20px 45px;
@@ -165,7 +166,6 @@ body {
     margin-top: 20px;
 }
 
-/* جزء الإحصائيات داخل الفوتر */
 .global-stats-part {
     display: flex;
     align-items: center;
@@ -212,7 +212,6 @@ body {
     background-color: #e2e8f0;
 }
 
-/* جزء السوشيال ميديا داخل الفوتر */
 .social-media-part {
     display: flex;
     align-items: center;
@@ -231,20 +230,91 @@ body {
     gap: 12px;
 }
 
-/* الدوائر السوداء والأيقونات البيضاء بناء على طلب المدير */
 .icon-circle {
     width: 45px;
     height: 45px;
-    background-color: #111111; /* خلفية سوداء */
-    border-radius: 50%; /* دائرية تماماً */
+    background-color: #111111; 
+    border-radius: 50%; 
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #ffffff; /* أيقونة بيضاء */
+    color: #ffffff; 
     font-size: 1.3rem;
     transition: transform 0.2s ease;
 }
 
 .icon-circle:hover {
-    transform: scale(1.08); /* تأثير حركة خفيف عند التمرير بالماوس */
+    transform: scale(1.08); 
+}
+
+
+/* ==========================================================================
+   📱📱 السحر هنا: كود التجاوب الخاص بشاشات الجوال والأجهزة الصغيرة 📱📱
+   ========================================================================== */
+@media (max-width: 1024px) {
+    
+    .dashboard-container {
+        padding: 20px 15px;
+    }
+
+    .title-ar {
+        font-size: 1.8rem;
+    }
+
+    .title-en {
+        font-size: 1rem;
+    }
+
+    /* تحويل صف النكهات إلى عمود تحت بعض عشان ما تندمج الكروت */
+    .flavors-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px; 
+        margin-bottom: 30px;
+    }
+
+    /* جعل الكرت يأخذ العرض الكامل المتوفر في الجوال */
+    .flavor-card {
+        width: 100%;
+        max-width: 400px; 
+        box-sizing: border-box;
+        padding: 25px 15px;
+    }
+
+    .header-zone h2 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .can-stage {
+        max-width: 160px; /* تصغير حجم العلبة قليلاً ليناسب الجوال */
+        margin-bottom: 15px;
+    }
+
+    .rating-number {
+        font-size: 2.8rem;
+    }
+
+    .stars-display {
+        font-size: 2.3rem;
+    }
+
+    /* تحويل الفوتر في الجوال ليكون عمودي وتحت بعض بشكل مرتب وبدون زحمة */
+    .combined-footer {
+        flex-direction: column;
+        gap: 25px;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .global-stats-part {
+        width: 100%;
+        justify-content: space-around;
+        gap: 10px;
+    }
+
+    .social-media-part {
+        flex-direction: column;
+        gap: 10px;
+    }
 }
