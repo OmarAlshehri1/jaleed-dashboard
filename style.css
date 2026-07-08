@@ -8,18 +8,17 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center; /* يضمن توسيط المحتوى عمودياً في الشاشات العملاقة */
+    align-items: center;
 }
 
-/* الحاوية الرئيسية تمتد لتملأ الشاشة بنسبة ممتازة وتتوسط العرض */
 .dashboard-container {
     width: 100%;
-    max-width: 1600px; /* تكبير الحد الأقصى لتستغل الشاشة الكبيرة */
+    max-width: 1600px; 
     min-height: 90vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* يوزع الهيدر فوق، الكروت بالنص، والفوتر تحت */
+    justify-content: space-between; 
     padding: 40px 30px;
     box-sizing: border-box;
 }
@@ -34,63 +33,77 @@ body {
 }
 
 .logo-img {
-    height: 140px; /* تكبير اللوقو ليناسب التلفزيون */
+    height: 140px; 
     object-fit: contain;
     margin-bottom: 15px;
 }
 
 .title-ar {
-    font-size: 3rem; /* تكبير العنوان العربي */
+    font-size: 3rem; 
     font-weight: 900;
     color: #111;
     margin: 0;
 }
 
 .title-en {
-    font-size: 1.5rem; /* تكبير العنوان الإنجليزي */
+    font-size: 1.5rem; 
     font-weight: 700;
     color: #718096;
     margin: 8px 0 0 0;
     letter-spacing: 2px;
 }
 
-/* صف النكهات - يمتد بشكل مرن ليملأ اليمين واليسار */
+/* صف النكهات المطور */
 .flavors-row {
     display: flex;
     justify-content: center;
-    align-items: stretch; /* يجعل جميع الكروت بنفس الارتفاع بشكل متناسق */
-    gap: 50px; /* مسافة متزنة بين الكروت */
+    align-items: stretch; 
+    gap: 50px; 
     width: 100%;
     margin: 30px 0;
 }
 
+/* الكرت الأساسي المجهز للإطار المضيء والنبض السحري */
 .flavor-card {
     flex: 1;
+    position: relative;
+    border-radius: 24px;
+    padding: 4px; /* مسافة لظهور الإطار الدوار */
+    background: transparent;
+    overflow: hidden;
+    display: flex;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* المحتوى الداخلي للكرت لحمايته من الدوران */
+.card-inner {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 40px 25px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* توزيع المحتوى داخلياً بالتساوي */
-    text-align: center;
-    background: #ffffff;
-    padding: 40px 25px; /* زيادة الحشوة الداخلية لتملأ الكرت */
-    border-radius: 24px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+    justify-content: space-between;
+    z-index: 2; /* يظهر فوق الأنيميشن الخلفي */
 }
 
+/* هيدر الكرت */
 .header-zone h2 {
-    font-size: 1.8rem; /* خط أوضح وأكبر */
+    font-size: 1.8rem; 
     font-weight: 900;
     color: #111;
     margin: 0 0 20px 0;
 }
 
+/* مسرح العلبة مع تأثير الظل المنفصل */
 .can-stage {
     width: 100%;
     max-width: 260px; 
     display: flex;
     justify-content: center;
     margin-bottom: 20px;
-    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.08));
 }
 
 .can-img {
@@ -99,6 +112,28 @@ body {
     object-fit: contain;
 }
 
+/* 🔄 أنيميشن طيران وطفو العلبة في الهواء بنعومة فائقة */
+.floating-can {
+    animation: floatEffect 5s ease-in-out infinite;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,0.06));
+}
+
+@keyframes floatEffect {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 15px 20px rgba(0,0,0,0.06));
+    }
+    50% {
+        transform: translateY(-12px) rotate(1deg); /* ترتفع للأعلى قليلاً مع ميلان خفيف جدأ */
+        filter: drop-shadow(0 25px 25px rgba(0,0,0,0.1)); /* الظل يبتعد ويكبر */
+    }
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        filter: drop-shadow(0 15px 20px rgba(0,0,0,0.06));
+    }
+}
+
+/* زون التقييمات والأرقام */
 .rating-zone {
     display: flex;
     flex-direction: column;
@@ -107,7 +142,7 @@ body {
 }
 
 .rating-number {
-    font-size: 4.5rem; /* أرقام ضخمة وواضحة للحضور من بعيد */
+    font-size: 4.5rem; 
     font-weight: 900;
     color: #222;
     margin-bottom: 5px;
@@ -115,7 +150,7 @@ body {
 
 .stars-display {
     position: relative;
-    font-size: 3.5rem; /* تكبير النجوم */
+    font-size: 3.5rem; 
     line-height: 1;
     display: inline-block;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -142,20 +177,76 @@ body {
     margin-top: 15px;
 }
 
-/* الألوان الخاصة بكل منتج */
+
+/* ==========================================================================
+   ✨✨ منطق حركة الـ Border الدوار والنظام اللوني السحري لكل منتج ✨✨
+   ========================================================================== */
+
+/* قاعدة الإطار المضيء الخلفي */
+.border-glow {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    animation: rotateBorder 6s linear infinite; /* دوران مستمر للإطار */
+}
+
+@keyframes rotateBorder {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* 1. تخصيص أنيميشن ونبض التوت العليق (Raspberry) */
 .color-raspberry .rating-number .score,
 .color-raspberry .stars-active {
     color: #AE3653 !important; 
 }
+.color-raspberry .border-glow {
+    background-image: conic-gradient(transparent, #AE3653, transparent 30%);
+}
+.color-raspberry {
+    animation: pulseRaspberry 4s ease-in-out infinite alternate;
+}
+@keyframes pulseRaspberry {
+    0% { box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+    100% { box-shadow: 0 15px 45px rgba(174, 54, 83, 0.12); } /* توهج عاكس بلون النكهة خلف البوكس */
+}
 
+/* 2. تخصيص أنيميشن ونبض التوت الأسود (Blackberry) */
 .color-blackberry .rating-number .score,
 .color-blackberry .stars-active {
     color: #805ad5; 
 }
+.color-blackberry .border-glow {
+    background-image: conic-gradient(transparent, #805ad5, transparent 30%);
+}
+.color-blackberry {
+    animation: pulseBlackberry 4s ease-in-out infinite alternate;
+}
+@keyframes pulseBlackberry {
+    0% { box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+    100% { box-shadow: 0 15px 45px rgba(128, 90, 213, 0.12); }
+}
 
+/* 3. تخصيص أنيميشن ونبض زهرة البيلسان (Elderflower) */
 .color-elderflower .rating-number .score,
 .color-elderflower .stars-active {
     color: #027E7D !important; 
+}
+.color-elderflower .border-glow {
+    background-image: conic-gradient(transparent, #027E7D, transparent 30%);
+}
+.color-elderflower {
+    animation: pulseElderflower 4s ease-in-out infinite alternate;
+}
+@keyframes pulseElderflower {
+    0% { box-shadow: 0 10px 30px rgba(0,0,0,0.02); }
+    100% { box-shadow: 0 15px 45px rgba(2, 126, 125, 0.12); }
 }
 
 
@@ -165,7 +256,7 @@ body {
     justify-content: space-between; 
     align-items: center;
     background: #ffffff;
-    padding: 25px 50px; /* تكبير الفوتر */
+    padding: 25px 50px; 
     border-radius: 24px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
     width: 100%;
@@ -201,7 +292,7 @@ body {
 }
 
 .stat-value {
-    font-size: 2.8rem; /* تكبير أرقام الإحصائيات الشاملة */
+    font-size: 2.8rem; 
     font-weight: 900;
     color: #111;
     line-height: 1;
@@ -239,7 +330,7 @@ body {
 }
 
 .icon-circle {
-    width: 55px; /* تكبير دوائر السوشيال ميديا للتلفزيون */
+    width: 55px; 
     height: 55px;
     background-color: #111111; 
     border-radius: 50%; 
@@ -262,7 +353,7 @@ body {
 
 
 /* ==========================================================================
-   📱📱 قسم التجاوب مع الجوال والأيباد (مضمون ومحمي تماماً) 📱📱
+   📱📱 حماية التجاوب لشاشات الجوال والأجهزة الصغيرة 📱📱
    ========================================================================== */
 @media (max-width: 1024px) {
     body {
@@ -288,6 +379,10 @@ body {
     .flavor-card {
         width: 100%;
         max-width: 400px; 
+        padding: 2px; /* تقليص مساحة الفراغ الخارجي على الجوال */
+    }
+
+    .card-inner {
         padding: 25px 15px;
     }
 
