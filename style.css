@@ -415,3 +415,30 @@ body {
     
     .icon-circle { width: 45px; height: 45px; font-size: 1.2rem; }
 }
+/* ==========================================================================
+   🫧 تأثير الفقاعات الغازية المتصاعدة عند التقييم الجديد 🫧
+   ========================================================================== */
+.bubble {
+    position: absolute;
+    bottom: 0;
+    border-radius: 50%;
+    pointer-events: none; /* عشان ما تخرب على الضغط أو الروابط */
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), transparent);
+    box-shadow: inset 0 0 8px rgba(255, 255, 255, 0.5), 0 0 12px currentColor;
+    animation: floatUpAndFade 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    z-index: 5;
+}
+
+@keyframes floatUpAndFade {
+    0% {
+        transform: translateY(0) scale(0.3);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-400px) scale(1.2); /* تصعد ل فوق البوكس وتكبر */
+        opacity: 0; /* تختفي بالنهاية */
+    }
+}
