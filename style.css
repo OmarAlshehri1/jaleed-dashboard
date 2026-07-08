@@ -3,7 +3,6 @@ body {
     padding: 0;
     background-color: #f6f7f9;
     font-family: 'Tajawal', sans-serif;
-    /* تم السماح بالتمرير والنزول في الصفحة لراحتك الكاملة */
     overflow-y: auto; 
     min-height: 100vh;
 }
@@ -27,7 +26,7 @@ body {
 }
 
 .logo-img {
-    height: 120px; /* تكبير لوقو جليد ليعطي هيبة للمكان */
+    height: 120px; 
     object-fit: contain;
     margin-bottom: 15px;
 }
@@ -104,13 +103,12 @@ body {
     margin-bottom: 5px;
 }
 
-/* 🎯 ضبط دقة التلوين للنجوم لمنع بقاء أطراف رمادية مشوهة */
+/* نظام النجوم الدقيق المتطابق بنسبة 100% */
 .stars-display {
     position: relative;
     font-size: 3rem;
     line-height: 1;
     display: inline-block;
-    /* إجبار المتصفح على استخدام خط متناسق المساحات لتطابق النجوم فوق بعضها بنسبة 100% */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
 }
 
@@ -135,24 +133,24 @@ body {
     margin-top: 15px;
 }
 
-/* 🎨 تلوين كل منتج باللون الخاص به (التقييم الرقمي + النجوم الفعالة) */
+/* 🎨 تطبيق الأكواد اللونية الجديدة بدقة مذهلة للتقييم والنجوم */
 
-/* 1. التوت العليق والتفاح -> أحمر دافئ */
+/* 1. التوت العليق والتفاح -> الكود المخصص #AE3653 */
 .color-raspberry .rating-number .score,
 .color-raspberry .stars-active {
-    color: #e53e3e; 
+    color: #AE3653 !important; 
 }
 
-/* 2. التوت الأسود والعنب -> بنفسجي فخم */
+/* 2. التوت الأسود والعنب -> البنفسجي الفخم (نفسه ممتاز) */
 .color-blackberry .rating-number .score,
 .color-blackberry .stars-active {
     color: #805ad5; 
 }
 
-/* 3. زهرة البيلسان والتفاح -> أخضر فاتح منعش */
+/* 3. زهرة البيلسان والتفاح -> الكود المخصص #027E7D */
 .color-elderflower .rating-number .score,
 .color-elderflower .stars-active {
-    color: #48bb78; 
+    color: #027E7D !important; 
 }
 
 
