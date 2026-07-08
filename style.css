@@ -317,4 +317,14 @@ body {
         flex-direction: column;
         gap: 10px;
     }
+    
+}
+/* يضمن الحفاظ على تنسيق الدوائر السوداء الفخمة بعد جعلها روابط في الداشبورد */
+.social-icons a.icon-circle {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.social-icons a.icon-circle:hover {
+    transform: scale(1.1);
 }
