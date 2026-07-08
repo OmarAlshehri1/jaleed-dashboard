@@ -5,21 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaleed Live Dashboard</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@700;900&display=swap" rel="stylesheet">
+    <!-- استدعاء مكتبة الأيقونات الشهيرة FontAwesome عشان تظهر شعارات السناب والتيك توك والانستجرام بدقة عالية -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="dashboard-container">
-        <!-- قسم اللوقو والعناوين تحت بعض بالترتيب المطلوب -->
+        <!-- قسم اللوقو والعناوين -->
         <header class="dashboard-header">
             <img src="https://res.cloudinary.com/dfoch6txc/image/upload/v1783517527/fdb53378-f67d-47f4-b571-16353e5384a5_gooyte.webp" alt="Jaleed Logo" class="logo-img">
             <h1 class="title-ar">تقييم نكهات جليد</h1>
             <h2 class="title-en">JALEED FLAVORS RATING</h2>
         </header>
         
-        <!-- صف النكهات بالإنجليزية والصور والألوان المخصصة -->
+        <!-- صف النكهات -->
         <div class="flavors-row">
-            <!-- 1. التوت العليق والتفاح - أحمر -->
+            <!-- 1. التوت العليق والتفاح -->
             <div class="flavor-card color-raspberry" id="raspberry">
                 <div class="header-zone">
                     <h2>RASPBERRY & APPLE</h2>
@@ -37,7 +39,7 @@
                 </div>
             </div>
 
-            <!-- 2. التوت الأسود والعنب - بنفسجي -->
+            <!-- 2. التوت الأسود والعنب -->
             <div class="flavor-card color-blackberry" id="blackberry">
                 <div class="header-zone">
                     <h2>BLACKBERRY & GRAPE</h2>
@@ -55,7 +57,7 @@
                 </div>
             </div>
 
-            <!-- 3. زهرة البيلسان والتفاح - أخضر فاتح -->
+            <!-- 3. زهرة البيلسان والتفاح -->
             <div class="flavor-card color-elderflower" id="elderflower">
                 <div class="header-zone">
                     <h2>ELDERFLOWER & APPLE</h2>
@@ -74,27 +76,40 @@
             </div>
         </div>
 
-        <!-- قسم الإحصائيات السفلي بالأيقونات واللغة الإنجليزية -->
-        <footer class="global-stats-footer">
-            <!-- يمين: إجمالي التقييمات -->
-            <div class="stat-box">
-                <div class="stat-icon-wrapper rating-star-icon">★</div>
-                <div class="stat-info">
-                    <div class="stat-value" id="global-rating-count">0</div>
-                    <div class="stat-label">Total Ratings</div>
+        <!-- منطقة الفوتر الموحدة: تجمع الأرقام وحسابات التواصل الاجتماعي -->
+        <footer class="combined-footer">
+            
+            <!-- يمين: الأرقام الإحصائية -->
+            <div class="global-stats-part">
+                <div class="stat-box">
+                    <div class="stat-icon-wrapper rating-star-icon">★</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="global-rating-count">0</div>
+                        <div class="stat-label">Total Ratings</div>
+                    </div>
+                </div>
+                
+                <div class="stat-divider"></div>
+                
+                <div class="stat-box">
+                    <div class="stat-icon-wrapper participant-user-icon">👥</div>
+                    <div class="stat-info">
+                        <div class="stat-value" id="global-participants-count">0</div>
+                        <div class="stat-label">Total Participants</div>
+                    </div>
                 </div>
             </div>
-            
-            <div class="stat-divider"></div>
-            
-            <!-- يسار: إجمالي المشاركين -->
-            <div class="stat-box">
-                <div class="stat-icon-wrapper participant-user-icon">👥</div>
-                <div class="stat-info">
-                    <div class="stat-value" id="global-participants-count">0</div>
-                    <div class="stat-label">Total Participants</div>
+
+            <!-- يسار: قسم السوشيال ميديا بالأيقونات السوداء الدائرية والاسم -->
+            <div class="social-media-part">
+                <span class="social-username">@jaleed.sa</span>
+                <div class="social-icons">
+                    <div class="icon-circle"><i class="fa-brands fa-instagram"></i></div>
+                    <div class="icon-circle"><i class="fa-brands fa-tiktok"></i></div>
+                    <div class="icon-circle"><i class="fa-brands fa-snapchat"></i></div>
                 </div>
             </div>
+
         </footer>
     </div>
 

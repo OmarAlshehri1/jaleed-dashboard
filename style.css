@@ -22,7 +22,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .logo-img {
@@ -53,7 +53,7 @@ body {
     gap: 80px;
     width: 100%;
     max-width: 1400px;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
 }
 
 .flavor-card {
@@ -103,7 +103,6 @@ body {
     margin-bottom: 5px;
 }
 
-/* نظام النجوم الدقيق المتطابق بنسبة 100% */
 .stars-display {
     position: relative;
     font-size: 3rem;
@@ -133,49 +132,54 @@ body {
     margin-top: 15px;
 }
 
-/* 🎨 تطبيق الأكواد اللونية الجديدة بدقة مذهلة للتقييم والنجوم */
-
-/* 1. التوت العليق والتفاح -> الكود المخصص #AE3653 */
+/* الألوان الخاصة بكل منتج */
 .color-raspberry .rating-number .score,
 .color-raspberry .stars-active {
     color: #AE3653 !important; 
 }
 
-/* 2. التوت الأسود والعنب -> البنفسجي الفخم (نفسه ممتاز) */
 .color-blackberry .rating-number .score,
 .color-blackberry .stars-active {
     color: #805ad5; 
 }
 
-/* 3. زهرة البيلسان والتفاح -> الكود المخصص #027E7D */
 .color-elderflower .rating-number .score,
 .color-elderflower .stars-active {
     color: #027E7D !important; 
 }
 
 
-/* 📊 تنسيق حاوية الفوتر السفلي للأرقام الإجمالية */
-.global-stats-footer {
+/* 📊 👥 📱 تنسيق منطقة الفوتر المشتركة الجديدة */
+.combined-footer {
     display: flex;
-    justify-content: center;
+    justify-content: space-between; /* يضع الأرقام على طرف والسوشيال ميديا على الطرف الآخر */
     align-items: center;
     background: #ffffff;
-    padding: 20px 60px;
+    padding: 20px 45px;
     border-radius: 24px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.04);
-    gap: 60px;
+    width: 100%;
+    max-width: 1350px;
+    box-sizing: border-box;
     border: 1px solid #edf2f7;
     margin-top: 20px;
+}
+
+/* جزء الإحصائيات داخل الفوتر */
+.global-stats-part {
+    display: flex;
+    align-items: center;
+    gap: 40px;
 }
 
 .stat-box {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 12px;
 }
 
 .stat-icon-wrapper {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
     line-height: 1;
 }
 
@@ -189,21 +193,58 @@ body {
 }
 
 .stat-value {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 900;
     color: #111;
     line-height: 1;
 }
 
 .stat-label {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #718096;
     font-weight: 700;
-    margin-top: 5px;
+    margin-top: 4px;
 }
 
 .stat-divider {
     width: 2px;
-    height: 55px;
+    height: 50px;
     background-color: #e2e8f0;
+}
+
+/* جزء السوشيال ميديا داخل الفوتر */
+.social-media-part {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.social-username {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #111;
+    letter-spacing: 0.5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 12px;
+}
+
+/* الدوائر السوداء والأيقونات البيضاء بناء على طلب المدير */
+.icon-circle {
+    width: 45px;
+    height: 45px;
+    background-color: #111111; /* خلفية سوداء */
+    border-radius: 50%; /* دائرية تماماً */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff; /* أيقونة بيضاء */
+    font-size: 1.3rem;
+    transition: transform 0.2s ease;
+}
+
+.icon-circle:hover {
+    transform: scale(1.08); /* تأثير حركة خفيف عند التمرير بالماوس */
 }
