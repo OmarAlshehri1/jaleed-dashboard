@@ -70,12 +70,21 @@ function updateCardUI(flavorId, stats) {
     const votesElement = card.querySelector('.total-votes');
     const activeStarsElement = document.getElementById(`stars-active-${flavorId}`);
 
-    // ✨ حماية الحسبة الرياضية: لو الـ count أكبر من صفر يحسب المتوسط، ولو صفر أو ممسوح يثبت على "0.0" فوراً ويمنع الـ NaN
-    const numAverage = stats.count > 0 ? (stats.totalStars / stats.count) : 0;
+    // ✨ حماية الحسبة الرياضية القصوى من أي قيمة غريبة
+    let numAverage = 0;
+    if (stats && stats.count > 0) {
+        numAverage = stats.totalStars / stats.count;
+    }
+    
+    // فلتر نهائي صارم: لو الحسبة طلعت NaN لأي سبب بالمتصفح، اجبرها تكون صفر
+    if (isNaN(numAverage) || typeof numAverage !== 'number') {
+        numAverage = 0;
+    }
+
     const averageStr = numAverage.toFixed(1);
     
     scoreElement.innerText = averageStr;
-    votesElement.innerText = `${stats.count} votes`;
+    votesElement.innerText = `${stats ? stats.count : 0} votes`;
 
     // حساب نسبة الامتلاء الدقيقة لتغطية النجوم بشكل كامل ومنع الحواف الرمادية
     const percentage = (numAverage / 5) * 100;
@@ -86,16 +95,14 @@ function updateCardUI(flavorId, stats) {
 
 // دالة تفحص إذا زاد العدد الفعلي للأصوات، تطلق الفقاعات الغازية فوراً
 function checkAndTriggerBubbles(flavorId, currentCount, colorHex) {
-    // إذا كانت هذه أول مرة يتم جلب البيانات عند فتح الصفحة، نقوم بحفظ العدد فقط دون إطلاق فقاعات
     if (lastCounts[flavorId] === -1) {
         lastCounts[flavorId] = currentCount;
         return;
     }
 
-    // إذا زاد عدد التقييمات الحالي عن العدد السابق، يعني ذلك وصول تقييم جديد بالثانية الحالية!
     if (currentCount > lastCounts[flavorId]) {
         triggerSodaBubbles(flavorId, colorHex);
-        lastCounts[flavorId] = currentCount; // تحديث العدد القديم بالجديد
+        lastCounts[flavorId] = currentCount; 
     }
 }
 
@@ -104,33 +111,28 @@ function triggerSodaBubbles(cardId, colorHex) {
     const card = document.getElementById(cardId);
     if (!card) return;
 
-    const bubbleCount = 18; // عدد الفقاعات في الفورة الواحدة
+    const bubbleCount = 18; 
     
     for (let i = 0; i < bubbleCount; i++) {
         setTimeout(() => {
             const bubble = document.createElement('div');
             bubble.classList.add('bubble');
             
-            // تحديد حجم عشوائي طبيعي للفقاعة
-            const size = Math.random() * 16 + 8; // بين 8px و 24px
+            const size = Math.random() * 16 + 8; 
             bubble.style.width = `${size}px`;
             bubble.style.height = `${size}px`;
             
-            // توزيع الفقاعات عشوائياً على كامل عرض الكرت من الأسفل
             const randomX = Math.random() * card.offsetWidth;
             bubble.style.left = `${randomX}px`;
             
-            // صبغ التوهج اللوني الخاص بكل نكهة
             bubble.style.color = colorHex;
-            
             card.appendChild(bubble);
             
-            // تنظيف الـ DOM بعد انتهاء الحركة تلقائياً للحفاظ على سلاسة وأداء الصفحة
             setTimeout(() => {
                 bubble.remove();
             }, 2500);
             
-        }, i * 80); // تأخير زمني بسيط متتابع لإعطاء شكل الفوران المتصاعد
+        }, i * 80); 
     }
 }
 
