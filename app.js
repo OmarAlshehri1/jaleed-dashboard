@@ -39,7 +39,7 @@ function listenToVotes() {
         if (data) {
             Object.values(data).forEach(vote => {
                 if (Summary[vote.flavor]) {
-                    Summary[vote.flavor].totalStars += parseInt(vote.stars);
+                    Summary[vote.flavor].totalStars += parseInt(vote.stars) || 0;
                     Summary[vote.flavor].count += 1;
                     totalGlobalCount += 1;
                 }
@@ -70,13 +70,15 @@ function updateCardUI(flavorId, stats) {
     const votesElement = card.querySelector('.total-votes');
     const activeStarsElement = document.getElementById(`stars-active-${flavorId}`);
 
-    const average = stats.count > 0 ? (stats.totalStars / stats.count).toFixed(1) : "0.0";
+    // ✨ حماية الحسبة الرياضية: لو الـ count أكبر من صفر يحسب المتوسط، ولو صفر أو ممسوح يثبت على "0.0" فوراً ويمنع الـ NaN
+    const numAverage = stats.count > 0 ? (stats.totalStars / stats.count) : 0;
+    const averageStr = numAverage.toFixed(1);
     
-    scoreElement.innerText = average;
+    scoreElement.innerText = averageStr;
     votesElement.innerText = `${stats.count} votes`;
 
     // حساب نسبة الامتلاء الدقيقة لتغطية النجوم بشكل كامل ومنع الحواف الرمادية
-    const percentage = (parseFloat(average) / 5) * 100;
+    const percentage = (numAverage / 5) * 100;
     if (activeStarsElement) {
         activeStarsElement.style.width = `${percentage}%`;
     }
