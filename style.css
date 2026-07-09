@@ -13,29 +13,53 @@ body {
 
 .dashboard-container {
     width: 100%;
-    max-width: 1800px; /* تم تكبير الحاوية لتستغل الشاشات العملاقة */
+    max-width: 1800px; 
     min-height: 95vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between; 
-    padding: 30px 40px;
+    padding: 25px 40px;
     box-sizing: border-box;
 }
 
-/* تنسيق الهيدر واللوقو */
+/* 📐 توزيع وقوة الـ Header المطور لمنع أي تداخل على التلفزيون */
 .dashboard-header {
+    width: 100%;
+    display: table; /* استخدام نظام التيبل الكلاسيكي الآمن لـ WeasyPrint ومتصفحات التلفزيون القديمة */
+    margin-bottom: 20px;
+}
+
+.header-spacer {
+    display: table-cell;
+    width: 25%; /* مساحة وهمية موازية لعرض الـ QR لخلق محاذاة سنتر مثالية للوقو */
+    vertical-align: middle;
+}
+
+.header-main-content {
+    display: table-cell;
+    width: 50%;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 15px;
+    vertical-align: middle;
+}
+
+/* 📸 تنسيق حاوية الـ QR الكبيرة المثبتة في الزاوية العلوية اليمنى للملف */
+.qr-header-container {
+    display: table-cell;
+    width: 25%;
+    text-align: right;
+    vertical-align: middle;
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    border: 1px solid #edf2f7;
 }
 
 .logo-img {
-    height: 150px; /* تكبير اللوقو */
+    height: 150px; 
     object-fit: contain;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
 }
 
 .title-ar {
@@ -53,6 +77,38 @@ body {
     letter-spacing: 2px;
 }
 
+/* نصوص الـ QR Code */
+.qr-text-zone {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: right;
+    margin-right: 15px;
+}
+
+.qr-text-ar {
+    font-size: 1.5rem; /* تكبير الخط */
+    font-weight: 900;
+    color: #111111;
+    margin-bottom: 4px;
+}
+
+.qr-text-en {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #718096;
+    letter-spacing: 1px;
+}
+
+/* تكبير صورة الـ QR بشكل ملحوظ ليلقط من أبعد نقطة */
+.qr-image {
+    width: 135px; 
+    height: 135px;
+    object-fit: contain;
+    border-radius: 12px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
 /* صف النكهات */
 .flavors-row {
     display: flex;
@@ -60,7 +116,7 @@ body {
     align-items: stretch; 
     gap: 50px; 
     width: 100%;
-    margin: 25px 0;
+    margin: 20px 0;
 }
 
 /* الكرت الأساسي المجهز للإطار المضيء والنبض السحري */
@@ -80,26 +136,26 @@ body {
     width: 100%;
     background: #ffffff;
     border-radius: 24px;
-    padding: 50px 30px; /* زيادة الحشوة الداخلية لتكبير البوكس */
+    padding: 50px 30px; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    z-index: 2; /* يظهر فوق الأنيميشن الخلفي */
+    z-index: 2; 
 }
 
 /* هيدر الكرت */
 .header-zone h2 {
-    font-size: 2.2rem; /* اسم النكهة */
+    font-size: 2.2rem; 
     font-weight: 900;
     color: #111;
     margin: 0 0 25px 0;
 }
 
-/* مسرح العلبة */
+/* مسرح العلبة وعملية الطفو الخورافية */
 .can-stage {
     width: 100%;
-    max-width: 360px; /* حجم العبوة الكبير المناسب للتلفزيون */
+    max-width: 360px; 
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
@@ -111,7 +167,6 @@ body {
     object-fit: contain;
 }
 
-/* أنيميشن طيران وطفو العلبة في الهواء بنعومة فائقة */
 .floating-can {
     animation: floatEffect 5s ease-in-out infinite;
 }
@@ -227,7 +282,7 @@ body {
 
 
 /* ==========================================================================
-   🫧 تأثير الفقاعات الغازية المتصاعدة (أوضح سِنة للفعالية) 🫧
+   🫧 تأثير الفقاعات الغازية المطور 🫧
    ========================================================================== */
 .bubble {
     position: absolute;
@@ -255,7 +310,7 @@ body {
 }
 
 
-/* 📊 👥 📱 الفوتر المشترك */
+/* 📊 👥 📱 الفوتر المشترك السفلي */
 .combined-footer {
     display: flex;
     justify-content: space-between; 
@@ -358,69 +413,27 @@ body {
 
 
 /* ==========================================================================
-   📸 تنسيق الـ QR Code الثابت في زاوية الشاشة للتلفزيون 📸
-   ========================================================================== */
-.qr-fixed-container {
-    position: fixed;
-    bottom: 30px;
-    right: 30px; 
-    background: #ffffff;
-    padding: 15px 20px;
-    border-radius: 20px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    z-index: 100; 
-    border: 2px solid #edf2f7;
-}
-
-.qr-text-zone {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; 
-    justify-content: center;
-}
-
-.qr-text-ar {
-    font-size: 1.4rem;
-    font-weight: 900;
-    color: #111111;
-    margin-bottom: 2px;
-}
-
-.qr-text-en {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #718096;
-    letter-spacing: 1px;
-}
-
-.qr-image {
-    width: 110px; 
-    height: 110px;
-    object-fit: contain;
-    border-radius: 10px;
-}
-
-
-/* ==========================================================================
-   📱📱 الحفاظ الكامل على دقة وتجاوب الجوال والايباد 📱📱
+   📱📱 حماية وتجاوب الجوال والايباد 📱📱
    ========================================================================== */
 @media (max-width: 1200px) {
     body {
         align-items: flex-start;
     }
     
-    /* إخفاء الـ QR المثبت على الجوال عشان ما يغطي المحتوى */
-    .qr-fixed-container {
-        display: none !important;
-    }
-    
     .dashboard-container {
         padding: 20px 15px;
         min-height: auto;
     }
+
+    /* تحويل الهيدر إلى نظام عمودي متناسق وإخفاء الـ QR والـ Spacer على الجوال */
+    .dashboard-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .header-spacer { display: none !important; }
+    .qr-header-container { display: none !important; }
+    .header-main-content { width: 100%; }
 
     .logo-img { height: 100px; }
     .title-ar { font-size: 1.8rem; }
