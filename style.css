@@ -63,7 +63,7 @@ body {
     margin: 25px 0;
 }
 
-/* الكرت الأساسي */
+/* الكرت الأساسي المجهز للإطار المضيء والنبض السحري */
 .flavor-card {
     flex: 1;
     position: relative;
@@ -75,7 +75,7 @@ body {
     box-shadow: 0 15px 45px rgba(0,0,0,0.03);
 }
 
-/* المحتوى الداخلي للكرت */
+/* المحتوى الداخلي للكرت لحمايته من الدوران */
 .card-inner {
     width: 100%;
     background: #ffffff;
@@ -85,12 +85,12 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    z-index: 2; 
+    z-index: 2; /* يظهر فوق الأنيميشن الخلفي */
 }
 
 /* هيدر الكرت */
 .header-zone h2 {
-    font-size: 2.2rem; /* تكبير اسم النكهة */
+    font-size: 2.2rem; /* اسم النكهة */
     font-weight: 900;
     color: #111;
     margin: 0 0 25px 0;
@@ -99,7 +99,7 @@ body {
 /* مسرح العلبة */
 .can-stage {
     width: 100%;
-    max-width: 360px; /* 🔥 تم تكبير حجم العبوة بشكل ملحوظ لتظهر من بعيد */
+    max-width: 360px; /* حجم العبوة الكبير المناسب للتلفزيون */
     display: flex;
     justify-content: center;
     margin-bottom: 25px;
@@ -111,7 +111,7 @@ body {
     object-fit: contain;
 }
 
-/* أنيميشن طيران وطفو العلبة */
+/* أنيميشن طيران وطفو العلبة في الهواء بنعومة فائقة */
 .floating-can {
     animation: floatEffect 5s ease-in-out infinite;
 }
@@ -140,7 +140,7 @@ body {
 }
 
 .rating-number {
-    font-size: 5rem; /* أرقام أضخم */
+    font-size: 5rem; 
     font-weight: 900;
     color: #222;
     margin-bottom: 5px;
@@ -148,7 +148,7 @@ body {
 
 .stars-display {
     position: relative;
-    font-size: 3.8rem; /* تكبير النجوم */
+    font-size: 3.8rem; 
     line-height: 1;
     display: inline-block;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
@@ -227,14 +227,13 @@ body {
 
 
 /* ==========================================================================
-   🫧 تأثير الفقاعات الغازية المحدث (أوضح بسنة بسيطة) 🫧
+   🫧 تأثير الفقاعات الغازية المتصاعدة (أوضح سِنة للفعالية) 🫧
    ========================================================================== */
 .bubble {
     position: absolute;
     bottom: 0;
     border-radius: 50%;
     pointer-events: none; 
-    /* تعديل التدرج والوضوح ليظهر الفوران بشكل أجمل وأوضح على الشاشات الكبيرة */
     background: radial-gradient(circle at 35% 35%, rgba(255, 255, 255, 0.95), transparent 70%);
     box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.6), 0 0 14px currentColor;
     animation: floatUpAndFade 2.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
@@ -247,10 +246,10 @@ body {
         opacity: 0;
     }
     10% {
-        opacity: 0.95; /* زيادة الشفافية البدئية لتكون الفقاعة أوضح */
+        opacity: 0.95; 
     }
     100% {
-        transform: translateY(-500px) scale(1.3); /* تم زيادة مسافة الصعود لتناسب الكروت الكبيرة */
+        transform: translateY(-500px) scale(1.3); 
         opacity: 0; 
     }
 }
@@ -359,11 +358,63 @@ body {
 
 
 /* ==========================================================================
+   📸 تنسيق الـ QR Code الثابت في زاوية الشاشة للتلفزيون 📸
+   ========================================================================== */
+.qr-fixed-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px; 
+    background: #ffffff;
+    padding: 15px 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.12);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 100; 
+    border: 2px solid #edf2f7;
+}
+
+.qr-text-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; 
+    justify-content: center;
+}
+
+.qr-text-ar {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #111111;
+    margin-bottom: 2px;
+}
+
+.qr-text-en {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #718096;
+    letter-spacing: 1px;
+}
+
+.qr-image {
+    width: 110px; 
+    height: 110px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+
+/* ==========================================================================
    📱📱 الحفاظ الكامل على دقة وتجاوب الجوال والايباد 📱📱
    ========================================================================== */
 @media (max-width: 1200px) {
     body {
         align-items: flex-start;
+    }
+    
+    /* إخفاء الـ QR المثبت على الجوال عشان ما يغطي المحتوى */
+    .qr-fixed-container {
+        display: none !important;
     }
     
     .dashboard-container {
@@ -393,7 +444,7 @@ body {
     }
 
     .header-zone h2 { font-size: 1.3rem; margin-bottom: 15px; }
-    .can-stage { max-width: 160px; margin-bottom: 15px; } /* حجم العلبة المحمي للجوال والايباد */
+    .can-stage { max-width: 160px; margin-bottom: 15px; } 
     .rating-number { font-size: 2.8rem; }
     .stars-display { font-size: 2.3rem; }
 
