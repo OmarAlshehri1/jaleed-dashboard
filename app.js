@@ -38,10 +38,14 @@ function listenToVotes() {
 
         if (data) {
             Object.values(data).forEach(vote => {
-                if (Summary[vote.flavor]) {
-                    Summary[vote.flavor].totalStars += parseInt(vote.stars) || 0;
-                    Summary[vote.flavor].count += 1;
-                    totalGlobalCount += 1;
+                if (vote && Summary[vote.flavor]) {
+                    // تحويل النجوم لرقم صحيح مع التأكد من أنه رقم صالح
+                    const starVal = Number(vote.stars);
+                    if (!isNaN(starVal) && starVal > 0) {
+                        Summary[vote.flavor].totalStars += starVal;
+                        Summary[vote.flavor].count += 1;
+                        totalGlobalCount += 1;
+                    }
                 }
             });
         }
@@ -70,23 +74,19 @@ function updateCardUI(flavorId, stats) {
     const votesElement = card.querySelector('.total-votes');
     const activeStarsElement = document.getElementById(`stars-active-${flavorId}`);
 
-    // ✨ حماية الحسبة الرياضية القصوى من أي قيمة غريبة
+    // حساب المتوسط الحقيقي الفعلي بناءً على التقييمات الصالحة فقط
+    let averageStr = "0.0";
     let numAverage = 0;
+
     if (stats && stats.count > 0) {
         numAverage = stats.totalStars / stats.count;
-    }
-    
-    // فلتر نهائي صارم: لو الحسبة طلعت NaN لأي سبب بالمتصفح، اجبرها تكون صفر
-    if (isNaN(numAverage) || typeof numAverage !== 'number') {
-        numAverage = 0;
+        averageStr = numAverage.toFixed(1);
     }
 
-    const averageStr = numAverage.toFixed(1);
-    
     scoreElement.innerText = averageStr;
     votesElement.innerText = `${stats ? stats.count : 0} votes`;
 
-    // حساب نسبة الامتلاء الدقيقة لتغطية النجوم بشكل كامل ومنع الحواف الرمادية
+    // حساب نسبة الامتلاء الدقيقة لتغطية النجوم
     const percentage = (numAverage / 5) * 100;
     if (activeStarsElement) {
         activeStarsElement.style.width = `${percentage}%`;
@@ -137,3 +137,10 @@ function triggerSodaBubbles(cardId, colorHex) {
 }
 
 window.onload = listenToVotes;
+
+// 🔄 إعادة تنشيط وكسر الكاش كل دقيقة للتأكد من تحديث أجهزة الجميع تلقائياً
+setInterval(() => {
+    const currentUrl = window.location.origin + window.location.pathname;
+    const cacheBuster = `?v=${new Date().getTime()}`;
+    window.location.href = currentUrl + cacheBuster;
+}, 60000);
