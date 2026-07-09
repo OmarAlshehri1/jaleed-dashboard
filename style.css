@@ -26,32 +26,32 @@ body {
 /* 📐 توزيع وقوة الـ Header المطور لمنع أي تداخل على التلفزيون */
 .dashboard-header {
     width: 100%;
-    display: table; /* استخدام نظام التيبل الكلاسيكي الآمن لـ WeasyPrint ومتصفحات التلفزيون القديمة */
+    display: table; 
     margin-bottom: 20px;
 }
 
 .header-spacer {
     display: table-cell;
-    width: 25%; /* مساحة وهمية موازية لعرض الـ QR لخلق محاذاة سنتر مثالية للوقو */
+    width: 20%; /* تعديل المقاسات لتوازن أدق */
     vertical-align: middle;
 }
 
 .header-main-content {
     display: table-cell;
-    width: 50%;
+    width: 60%;
     text-align: center;
     vertical-align: middle;
 }
 
-/* 📸 تنسيق حاوية الـ QR الكبيرة المثبتة في الزاوية العلوية اليمنى للملف */
+/* 📸 تصغير البوكس الخارجي للـ QR وتهيئة العناصر لتكون تحت بعض عمودياً */
 .qr-header-container {
     display: table-cell;
-    width: 25%;
-    text-align: right;
+    width: 20%;
+    text-align: center; /* سنتره العناصر بالداخل */
     vertical-align: middle;
     background: #ffffff;
-    padding: 15px 20px;
-    border-radius: 20px;
+    padding: 12px; /* تقليل الحشوة لتصغير البوكس */
+    border-radius: 18px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     border: 1px solid #edf2f7;
 }
@@ -77,36 +77,34 @@ body {
     letter-spacing: 2px;
 }
 
-/* نصوص الـ QR Code */
+/* تكبير صورة الـ QR لتملأ البوكس بوضوح تام للمسافات البعيدة */
+.qr-image {
+    width: 170px; /* تم تكبير الـ QR بشكل ملحوظ ليقفل مساحة البوكس */
+    height: 170px;
+    object-fit: contain;
+    border-radius: 10px;
+    display: block;
+    margin: 0 auto 8px auto; /* توسيط وسحب النص للأسفل */
+}
+
+/* نصوص الـ QR Code بالأسفل */
 .qr-text-zone {
-    display: inline-block;
-    vertical-align: middle;
-    text-align: right;
-    margin-right: 15px;
+    display: block;
+    text-align: center;
 }
 
 .qr-text-ar {
-    font-size: 1.5rem; /* تكبير الخط */
+    font-size: 1.3rem;
     font-weight: 900;
     color: #111111;
-    margin-bottom: 4px;
+    margin-bottom: 2px;
 }
 
 .qr-text-en {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
     color: #718096;
-    letter-spacing: 1px;
-}
-
-/* تكبير صورة الـ QR بشكل ملحوظ ليلقط من أبعد نقطة */
-.qr-image {
-    width: 135px; 
-    height: 135px;
-    object-fit: contain;
-    border-radius: 12px;
-    vertical-align: middle;
-    display: inline-block;
+    letter-spacing: 0.5px;
 }
 
 /* صف النكهات */
@@ -119,7 +117,7 @@ body {
     margin: 20px 0;
 }
 
-/* الكرت الأساسي المجهز للإطار المضيء والنبض السحري */
+/* الكرت الأساسي */
 .flavor-card {
     flex: 1;
     position: relative;
@@ -131,7 +129,7 @@ body {
     box-shadow: 0 15px 45px rgba(0,0,0,0.03);
 }
 
-/* المحتوى الداخلي للكرت لحمايته من الدوران */
+/* المحتوى الداخلي للكرت */
 .card-inner {
     width: 100%;
     background: #ffffff;
@@ -152,7 +150,7 @@ body {
     margin: 0 0 25px 0;
 }
 
-/* مسرح العلبة وعملية الطفو الخورافية */
+/* مسرح العلبة */
 .can-stage {
     width: 100%;
     max-width: 360px; 
@@ -282,7 +280,7 @@ body {
 
 
 /* ==========================================================================
-   🫧 تأثير الفقاعات الغازية المطور 🫧
+   🫧 تأثير الفقاعات الغازية 🫧
    ========================================================================== */
 .bubble {
     position: absolute;
@@ -425,7 +423,6 @@ body {
         min-height: auto;
     }
 
-    /* تحويل الهيدر إلى نظام عمودي متناسق وإخفاء الـ QR والـ Spacer على الجوال */
     .dashboard-header {
         display: flex;
         flex-direction: column;
